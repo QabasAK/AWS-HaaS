@@ -182,12 +182,11 @@ async def main():
 
 asyncio.run(main())
 ```
-
-<img src="https://github.com/user-attachments/assets/89d3445a-4123-4130-bf30-f5828e103ba0" alt="CloudWatch" width="55%" align="left">
-
 The objective is to evaluate the honeypot’s resilience, scalability, and responsiveness under high-volume connection attempts, without overwhelming system resources. This test
 helps verify whether the honeypot can sustain realistic and aggressive traffic patterns while
 maintaining operational stability.
+
+<img src="https://github.com/user-attachments/assets/89d3445a-4123-4130-bf30-f5828e103ba0" alt="CloudWatch" width="60%" align="left">
 
 This level of CPU efficiency indicates strong scalability headroom for more intense or prolonged attacks. From a networking perspective, metrics showed a sharp spike in inbound
 connections, confirming successful flood activity, yet no packet loss or throttling was observed. This suggests the underlying virtual network infrastructure effectively handled the
