@@ -189,6 +189,8 @@ maintaining operational stability.
 <img src="https://github.com/user-attachments/assets/89d3445a-4123-4130-bf30-f5828e103ba0" alt="CloudWatch" width="60%" align="left">
 
 This level of CPU efficiency indicates strong scalability headroom for more intense or prolonged attacks. From a networking perspective, metrics showed a sharp spike in inbound
-connections, confirming successful flood activity, yet no packet loss or throttling was observed. This suggests the underlying virtual network infrastructure effectively handled the
+connections, confirming successful flood activity, yet no packet loss or throttling was observed. 
+
+This suggests the underlying virtual network infrastructure effectively handled the
 burst load, and the honeypot remained operational and responsive throughout.
 
