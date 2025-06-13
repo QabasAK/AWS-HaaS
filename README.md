@@ -183,7 +183,7 @@ async def main():
 asyncio.run(main())
 ```
 
-<img src="https://github.com/user-attachments/assets/89d3445a-4123-4130-bf30-f5828e103ba0" alt="CloudWatch" width="45%" align="left">
+<img src="https://github.com/user-attachments/assets/89d3445a-4123-4130-bf30-f5828e103ba0" alt="CloudWatch" width="55%" align="left">
 
 The objective is to evaluate the honeypot’s resilience, scalability, and responsiveness under high-volume connection attempts, without overwhelming system resources. This test
 helps verify whether the honeypot can sustain realistic and aggressive traffic patterns while
