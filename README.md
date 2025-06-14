@@ -74,7 +74,7 @@ S3 triggers a Lambda function (`CowrieLogParser`) which parses cowrie logs store
 Another Lambda function (`LogDynamoDBToCloudWatch`) streams logs to CloudWatch which alert thresholds based on repeated attacker IPs using SNS notifications.
 
 <p align="center">
-   <img src="https://github.com/user-attachments/assets/5f41b4fc-7a95-4b5a-9e97-a41484cf7510" alt="SNS" width=55%>
+   <img src="https://github.com/user-attachments/assets/5f41b4fc-7a95-4b5a-9e97-a41484cf7510" alt="SNS" width=80%>
  </p>
 
 ### Security Measures
