@@ -9,7 +9,7 @@ async def flood(target_ip, target_port):
         pass
 
 async def main():
-    target_ip = "16.171.0.195"  # EC2 instance's public IP
+    target_ip = "<EC2_PUBLIC_IP>"  # EC2 instance's public IP
     target_port = 2222
     tasks = [flood(target_ip, target_port) for _ in range(5000)]  # 5k connections
     await asyncio.gather(*tasks)
