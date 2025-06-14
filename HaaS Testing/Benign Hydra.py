@@ -1,7 +1,7 @@
 from paramiko import *
 from time import *
 
-target_ip = "16.171.0.195"
+target_ip = "<EC2_PUBLIC_IP>"
 port = "2222"
 username = "root"
 passwords = ["123456", "admin", "password", "toor", "qwerty", "letmein", "malak", "qabas", "cloud", "2025"]
