@@ -1,16 +1,17 @@
 # Cloud-Based Honeypot-as-a-Service 🍯
 
-<img
-  src="https://github.com/user-attachments/assets/9b9fd51f-56c0-4977-bee8-8f8bd29b15bd"
-  align="right"
-  width="40%"
-  style="margin: 0 0 1em 1em;"
-  alt="AWSArch">
 
 <!-- 2) Your text paragraphs will now wrap neatly on the left -->
 A cloud-hosted honeypot system built using Cowrie on Amazon EC2, designed to attract, log, and analyze malicious behavior. Leveraging AWS services including S3, CloudWatch, Lambda, and DynamoDB, this project demonstrates proactive security through deception, analysis, and real-time monitoring.
 <!-- 3) Clear the float so following content starts below -->
 <div style="clear: both;"></div>
+
+<img
+  src="https://github.com/user-attachments/assets/9b9fd51f-56c0-4977-bee8-8f8bd29b15bd"
+  align="right"
+  width="45%"
+  style="margin: 0 0 1em 1em;"
+  alt="AWSArch">
 
 This project uses Cowrie Honeypot which is a medium interaction SSH and Telnet honeypot
 designed to log brute force attacks and shell interaction performed by an attacker. Cowrie
