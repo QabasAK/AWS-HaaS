@@ -3,7 +3,7 @@
 <img
   src="https://github.com/user-attachments/assets/9b9fd51f-56c0-4977-bee8-8f8bd29b15bd"
   align="right"
-  width="50%"
+  width="70%"
   style="margin: 2em 2em 2em 2em;"
   alt="AWSArch">
   
