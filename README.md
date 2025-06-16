@@ -3,9 +3,8 @@
 <img
   src="https://github.com/user-attachments/assets/9b9fd51f-56c0-4977-bee8-8f8bd29b15bd"
   align="right"
-  width="70%"
-  hspace="20"
-  vspace="10"
+  width="65%"
+  style="margin: 10em 10em 10em 10em;"
   alt="AWSArch">
   
 A cloud-hosted honeypot system built using Cowrie on Amazon EC2, designed to attract, log, and analyze malicious behavior. Leveraging AWS services including S3, CloudWatch, Lambda, and DynamoDB, this project demonstrates proactive security through deception, analysis, and real-time monitoring. Cowrie is a medium interaction SSH and Telnet honeypot designed to log brute force attacks and shell interaction performed by an attacker. Cowrie also functions as an SSH and telnet proxy to observe attacker behavior to another system.
