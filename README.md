@@ -1,5 +1,27 @@
 # Cloud-Based Honeypot-as-a-Service 🍯
 
+## Quick Start (runs locally — no AWS account needed)
+
+Requires [Docker](https://docs.docker.com/get-docker/).
+
+```bash
+git clone https://github.com/QabasAK/AWS-HaaS
+cd AWS-HaaS
+docker compose up --build
+```
+
+This spins up a local AWS environment (via [LocalStack](https://localstack.cloud)), deploys both Lambda functions, and runs a simulated attack campaign through the full pipeline:
+
+```
+S3 (log upload) → CowrieLogParser (Lambda) → DynamoDB → LogDynamoDBToCloudWatch (Lambda)
+```
+
+To inspect the parsed attack data directly:
+```bash
+docker compose exec localstack \
+  awslocal dynamodb scan --table-name CowrieLogs
+```
+
 A cloud-hosted honeypot system built using Cowrie on Amazon EC2, designed to attract, log, and analyze malicious behavior. Leveraging AWS services including S3, CloudWatch, Lambda, and DynamoDB, this project demonstrates proactive security through deception, analysis, and real-time monitoring. 
 
 <p align="center">
@@ -55,19 +77,19 @@ Cowrie logs uploaded to S3 with a Bash automation script in which sensitive logs
 #!/bin/bash
 
 bucket="honeypot-logs-2025"
-timestamp=$ (date +"%Y-%m-%d_%H-%M-%S")
+timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 
-logs_src="$ home/cowrie/var/log/cowrie/"
-downloads_src="$ home/cowrie/var/lib/cowrie/downloads/"
+logs_src="$HOME/cowrie/var/log/cowrie/"
+downloads_src="$HOME/cowrie/var/lib/cowrie/downloads/"
 
-logs_dest="s3://$ bucket/cowrie/logs/$ timestamp/"
-downloads_dest="s3://$ bucket/cowrie/downloads/$ timestamp/"
+logs_dest="s3://$bucket/cowrie/logs/$timestamp/"
+downloads_dest="s3://$bucket/cowrie/downloads/$timestamp/"
 
-echo "Uploading Cowrie logs to $ logs_dest ..."
-aws s3 cp "$ logs_src" "$ logs_dest" --recursive
+echo "Uploading Cowrie logs to $logs_dest ..."
+aws s3 cp "$logs_src" "$logs_dest" --recursive
 
-echo "Uploading Cowrie downloads to $ downloads_dest ..."
-aws s3 cp "$ downloads_src" "$ downloads_dest" --recursive
+echo "Uploading Cowrie downloads to $downloads_dest ..."
+aws s3 cp "$downloads_src" "$downloads_dest" --recursive
 
 echo "Upload complete!"
 ```

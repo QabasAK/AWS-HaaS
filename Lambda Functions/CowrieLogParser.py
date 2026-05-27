@@ -4,10 +4,6 @@ import boto3
 from datetime import datetime
 from urllib.parse import unquote_plus
 
-# Connect to DynamoDB
-dynamodb = boto3.resource('dynamodb')
-table = dynamodb.Table('CowrieLogs')
-
 # Regex patterns
 TIMESTAMP_PATTERN = re.compile(r'^(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d+Z)')
 NEW_CONNECTION_PATTERN = re.compile(
@@ -80,6 +76,8 @@ def parse_log_line(line, current_sessions):
 
 def lambda_handler(event, context):
     s3 = boto3.client('s3')
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('CowrieLogs')
     bucket = event['Records'][0]['s3']['bucket']['name']
     key = unquote_plus(event['Records'][0]['s3']['object']['key'])
     

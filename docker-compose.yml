@@ -1,0 +1,36 @@
+services:
+  localstack:
+    image: localstack/localstack:3.4
+    container_name: haas-localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3,dynamodb,lambda,logs,iam
+      - DEBUG=0
+    volumes:
+      - "./localstack/init/ready.d:/etc/localstack/init/ready.d"
+      - "./Lambda Functions:/opt/lambda-src"
+      - localstack_data:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  demo:
+    build:
+      context: ./demo
+    container_name: haas-demo
+    depends_on:
+      localstack:
+        condition: service_healthy
+    environment:
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+      - AWS_DEFAULT_REGION=us-east-1
+      - AWS_ENDPOINT_URL=http://localstack:4566
+    restart: "no"
+
+volumes:
+  localstack_data:
